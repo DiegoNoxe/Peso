@@ -1,2 +1,0 @@
-# Peso
-Exercicio faeterj.
