@@ -1,0 +1,143 @@
+#include <stdio.h>
+
+int main(void) {
+  ///Variaveis
+  int prof;
+  int turma = 1;
+  float peso;
+  int aluno_menor_2l = 0;
+  float percen_menos2l;
+  int acimia_3l = 0;
+  float acima3l_media = 0;
+  float calculo;
+  int alunos = 1;
+  float total_t1 = 0;
+  float total_t2 = 0;
+  float total_t3 = 0;
+  float peso_tot = 0;
+  float max_inge = -11;
+
+  ///Inicio
+  
+  printf("Iniciando o programa pela %d vez\n", turma);
+  printf("Digite (1) para iniciar o programa\n");
+  scanf("%d", &prof);
+    
+
+  ///Evitando erros
+  
+  if (prof > 1 || prof <= 0){
+    printf("Opção invalida! Tente novamente\n");
+    return main();}
+    
+  ///Deu certo? bom.  
+    
+  else
+  printf("Olá, professor(a)! Espero que aproveite bem o programa\n");
+  printf("Dica: Aperte 0 para avançar para a proxima turma\n");
+  printf("\n");
+
+  ///Enquanto
+  while(turma < 4)
+  
+  {
+    
+  ///Perguntando peso
+    
+  printf("Turma: %d\n", turma);  
+    
+    printf("---------------------------------\n");
+  printf("Qual o peso do aluno(a): %d?\n", alunos);
+    printf("  O   \n");
+    printf(" /|\\ \n");  
+    printf(" / \\ \n");
+    scanf("%f", &peso);
+    if (peso > max_inge){
+      max_inge = peso;}
+    peso_tot+= peso;
+    printf("---------------------------------\n");
+  ///Info das turmas
+    
+  if (peso <= 0){
+    printf("Dados da turma número: %d \n", turma);
+    printf("---------------------------------\n");
+    turma+= 1;
+    
+  ///Turma 1  
+    if (turma == 2){
+     total_t1 = peso_tot;
+      
+ ///Info da turma     
+     printf("total de litros consumido pela turma 1: %2.f\n", total_t1);
+      
+     printf("Há %d que bebem menos de 2l na turma 1\n", aluno_menor_2l);
+      
+     printf("percentual de alunos desta turma que ingerem menos de 2L %.2f%%\n", (float)aluno_menor_2l*100/(alunos-1));
+      
+     printf("Quantidade média consumida: %.3f\n", total_t1/(alunos-1));
+      
+     printf("Média dos que consomem 3l: %.2f\n", (float)acimia_3l/(alunos-1));
+    printf("---------------------------------\n");}
+
+  ///Turma 2    
+    else if(turma == 3){
+      
+      ///Calculo total
+           total_t2 = peso_tot;
+       ///Info da turma     
+           printf("total de litros consumido pela turma 2: %2.f\n", total_t2);
+
+           printf("Há %d que bebem menos de 2l na turma 2.\n", aluno_menor_2l);
+
+           printf("percentual de alunos desta turma que ingerem menos de 2L %2.f%%\n", (float)aluno_menor_2l*100/(alunos-1));
+
+           printf("Quantidade média consumida: %.3f\n", total_t2/(alunos-1));
+
+           printf("Média dos que consomem 3l: %.2f\n", (float)acimia_3l/(alunos-1));
+          printf("---------------------------------\n");}
+
+
+    else if(turma == 4){
+    ///Calculo total
+         total_t3 = peso_tot;
+     ///Info da turma     
+         printf("total de litros consumido pela turma 3: %2.f\n", total_t3);
+
+         printf("Há %d que bebem menos de 2l na turma 3.\n", aluno_menor_2l);
+
+         printf("percentual de alunos desta turma que ingerem menos de 2L %2.f%%\n", (float)aluno_menor_2l*100/(alunos-1));
+
+         printf("Quantidade média consumida: %.1f\n", total_t3/(alunos-1));
+
+         printf("Média dos que consomem 3l: %.2f\n", 0.0 +(float)acimia_3l/(alunos-1));
+        printf("---------------------------------\n");}
+  
+    
+  
+    ///Zerando tudo
+    aluno_menor_2l = 0;
+    acimia_3l      = 0;
+    alunos         = 0;
+  }
+
+  ///Calculos para funcionamento do codigo.
+  alunos++;
+  calculo = (35*peso)/1000;
+  if (calculo > 0){
+  printf("Aluno(a) %d precisa beber %.2f de aguas\n", alunos-1, calculo);}
+    
+  if (calculo < 2){
+    aluno_menor_2l++;}
+  if (calculo > 3){
+    acimia_3l++;
+    acima3l_media += peso;}
+    
+  ///Encerramento
+  if (turma ==4){
+    printf("Programa encerrado!\n");
+    printf("Total ingerido por todas as turmas: %.1f\n", total_t1+total_t2+total_t3);
+    printf("Maxima ingerida: %.1f", max_inge);
+    return 0;}
+}
+  return 0;
+}
