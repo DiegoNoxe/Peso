@@ -1,3 +1,6 @@
+#Codigo feito em c no replit.
+
+
 #include <stdio.h>
 
 int main(void) {
